@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +27,7 @@ SECRET_KEY = 'django-insecure-**bnkqr1)sa=edi@0edb#0^p2a=sdtbby)ylkjrv6^yo@^sqgj
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['geohazards-geoai.herokuapp.com']
 
 
 # Application definition
@@ -76,16 +78,32 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
+#         'NAME': 'quake' ,
+#         'USER': 'postgres',
+#         'PASSWORD': '5586' ,
+#         'HOST': 'localhost' ,
+#         'PORT': 5432 ,
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'quake' ,
-        'USER': 'postgres',
-        'PASSWORD': '5586' ,
-        'HOST': 'localhost' ,
-        'PORT': 5432 ,
+        'NAME': 'd146tm5a45g3bc' ,
+        'USER': 'kzynukbxmnccij',
+        'PASSWORD': 'dec9237adccd7fd3c05e9a635b7cfc6d9aba89cfc51528326eae05bcbf97a2d5' ,
+        'HOST': 'ec2-52-201-72-91.compute-1.amazonaws.com' ,
+        'PORT': '5432' ,
     }
 }
+
+
+
+
+
 SERIALIZATION_MODULES = {
     'geojson':'djgeojson.serializers'
 }
@@ -129,6 +147,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATIC_ROOT =  os.path.join(BASE_DIR, "static" , "staticfiles")
+django_heroku.settings(locals())
 
 
 MEDIA_URL = '/media/'
