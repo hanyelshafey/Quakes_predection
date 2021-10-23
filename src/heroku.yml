@@ -6,7 +6,7 @@ setup:
     DISABLE_COLLECTSTATIC: '1'
 build:
   packages:
-    - gdal-bin
+    https://github.com/heroku/heroku-geo-buildpack.git
   languages:
     - python
 run:
