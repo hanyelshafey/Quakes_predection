@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 import django.contrib.auth.views
-import geoquaksapp.views
-from geoquaksapp.views import quake_dataset , quake_dataset_pred , quake_dataset_pred_risk
+import geoquakesapp.views
+from geoquakesapp.views import quake_dataset , quake_dataset_pred , quake_dataset_pred_risk
 urlpatterns = [
-    url(r"^$", geoquaksapp.views.home , name = "home"),
-    url(r"^quake_dataset/",geoquaksapp.views.quake_dataset,name = "quakedataset"), 
-    url(r"^quake_dataset_pred/",geoquaksapp.views. quake_dataset_pred,name = "quakedatasetpred"), 
-    url(r"^quake_dataset_pred_risk/",geoquaksapp.views.quake_dataset_pred_risk,name = "quakedatasetpredrisk"), 
+    url(r"^$", geoquakesapp.views.home , name = "home"),
+    url(r"^quake_dataset/",geoquakesapp.views.quake_dataset,name = "quakedataset"), 
+    url(r"^quake_dataset_pred/",geoquakesapp.views. quake_dataset_pred,name = "quakedatasetpred"), 
+    url(r"^quake_dataset_pred_risk/",geoquakesapp.views.quake_dataset_pred_risk,name = "quakedatasetpredrisk"), 
     path('admin/', admin.site.urls),
 ]

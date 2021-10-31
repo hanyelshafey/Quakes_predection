@@ -11,13 +11,13 @@ from sklearn.model_selection import GridSearchCV
 from  sklearn.metrics import accuracy_score, confusion_matrix , recall_score , precision_score , f1_score ,classification_report,plot_confusion_matrix
 
 #import django_heroku
-from .models import Quake , Quake_Predections
+ #from .models import Quake, Quake_Predections
 #import models.Quake
 
 
 # Register your models here.
-admin.site.register(Quake)
-admin.site.register(Quake_Predections)
+#admin.site.register(Quake)
+#admin.site.register(Quake_Predections)
 
 # if Quake.objects.all().count()==0 :
 #     #Add The 1965 - 2016 earthquaks datasets 
