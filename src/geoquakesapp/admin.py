@@ -26,7 +26,8 @@ admin.site.register(Quake_Predections)
 
 if Quake.objects.all().count()==0 :
     #Add The 1965 - 2016 earthquaks datasets 
-    df = pd.read_csv(r"database.csv")
+    url1= "https://res.cloudinary.com/dehovuerv/raw/upload/v1635721947/database_tztbx5.csv"
+    df = pd.read_csv(url1,sep=",")
     # preview df
     #print(df.head())
 
@@ -59,8 +60,10 @@ if Quake.objects.all().count()==0 :
 
 if Quake_Predections.objects.all().count()==0:
     # ass the 2017 test data and the 1965 - 2016 training data 
-    df_test = pd.read_csv(r"earthquakeTest.csv.txt")
-    df_train = pd.read_csv(r"database.csv")
+    url2="https://res.cloudinary.com/dehovuerv/raw/upload/v1635722055/earthquakeTest_bx8ktr.csv"
+    df_test = pd.read_csv(url2,sep=",")
+    url1= "https://res.cloudinary.com/dehovuerv/raw/upload/v1635721947/database_tztbx5.csv"
+    df_train = pd.read_csv(url1,sep=",")
 
     df_train_load = df_train.drop(['Time',	'Depth Error','Depth Seismic Stations',	'Magnitude Error',	'Magnitude Seismic Stations'	,'Azimuthal Gap'	,'Horizontal Distance',
     	'Horizontal Error',	'Root Mean Square'	,	'Source'	,'Location Source',	'Magnitude Source',	'Status'] , axis=1)
