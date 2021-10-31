@@ -77,7 +77,7 @@ if Quake_Predections.objects.all().count()==0:
     df_test_load =  df_test_load.rename(columns={'time':"Date" ,'latitude':'Latitude','longitude':"Longitude",'mag':'Magnitude'
     ,'depth':'Depth'})
 
-
+    print("2")
     # create training and test dataframes
     df_test_data = df_test_load[['Latitude',"Longitude",'Magnitude','Depth']]
     df_train_data =  df_train_load[['Latitude',"Longitude",'Magnitude','Depth']]
@@ -103,7 +103,7 @@ if Quake_Predections.objects.all().count()==0:
     model_reg.fit(X_train,y_train)
     # Use The trained model to predict the training test data 
     model_reg.predict(X_test)
-
+    print("3")
     # improve the model accuracy by autonating hyperparameter tuning
     Parameters = {'n_estimators':[10,20,50,100,200,500]}
     # Create the gridsearchcv model 
@@ -116,7 +116,7 @@ if Quake_Predections.objects.all().count()==0:
     results = best_fit.predict(X_test)
     score = (best_fit.score(X_test,y_test)*100)+50
     print(score)
-
+    print("4")
     # Use the best fit model to make prediction on out out of sample test data (quakes for year 2017)
     final_results = best_fit.predict(X_new)
     # Evaluate the model accuracy
@@ -134,7 +134,7 @@ if Quake_Predections.objects.all().count()==0:
         i+=1
 
     # create our predicted earthquakes dataframe
-
+    print("5")
     df_results = X_new[['Latitude',"Longitude"]]
     df_results['Magnitude']=lst_Magnitudes
     df_results['Depth']=lst_Depth
@@ -142,7 +142,7 @@ if Quake_Predections.objects.all().count()==0:
     
     # Preview the prediction data set
     print(df_results.head())
-
+    print("6")
     # Insert the  predicted dataset into the Quake_Predections model /table
     for index , row in df_results.iterrows():
         Latitude = row["Latitude"]
