@@ -57,7 +57,7 @@ if Quake.objects.all().count()==0 :
         , Magnitude_type=Magnitude_type , ID=ID).save()
 
 
-
+print("1")
 if Quake_Predections.objects.all().count()==0:
     # ass the 2017 test data and the 1965 - 2016 training data 
     url2="https://res.cloudinary.com/dehovuerv/raw/upload/v1635722055/earthquakeTest_bx8ktr.csv"
