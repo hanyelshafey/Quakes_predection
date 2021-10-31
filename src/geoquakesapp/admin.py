@@ -104,18 +104,18 @@ if Quake_Predections.objects.all().count()==0:
     # Use The trained model to predict the training test data 
     model_reg.predict(X_test)
     print("3")
-    # improve the model accuracy by autonating hyperparameter tuning
-    Parameters = {'n_estimators':[10,20,50,100,200,500]}
-    # Create the gridsearchcv model 
-    grid_obj = GridSearchCV(model_reg,Parameters)
-    # train the model using the training data
-    grid_fit = grid_obj.fit(X_train, y_train)
-    # select the best fit model
-    best_fit = grid_fit.best_estimator_
-    #Use the best fit model to make the prediction on our training test data
-    results = best_fit.predict(X_test)
-    score = (best_fit.score(X_test,y_test)*100)+50
-    print(score)
+    # # improve the model accuracy by autonating hyperparameter tuning
+    # Parameters = {'n_estimators':[10,20,50,100,200,500]}
+    # # Create the gridsearchcv model 
+    # grid_obj = GridSearchCV(model_reg,Parameters)
+    # # train the model using the training data
+    # grid_fit = grid_obj.fit(X_train, y_train)
+    # # select the best fit model
+    # best_fit = grid_fit.best_estimator_
+    # #Use the best fit model to make the prediction on our training test data
+    # results = best_fit.predict(X_test)
+    # score = (best_fit.score(X_test,y_test)*100)+50
+    # print(score)
     print("4")
     # Use the best fit model to make prediction on out out of sample test data (quakes for year 2017)
     final_results = best_fit.predict(X_new)
