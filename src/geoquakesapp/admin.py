@@ -118,9 +118,9 @@ if Quake_Predections.objects.all().count()==0:
     # print(score)
     print("4")
     # Use the best fit model to make prediction on out out of sample test data (quakes for year 2017)
-    final_results = best_fit.predict(X_new)
+    final_results = model_reg.predict(X_new)
     # Evaluate the model accuracy
-    final_score = best_fit.score(X_new,y_new)*100
+    final_score = model_reg.score(X_new,y_new)*100
     #Sotre  the prediction results into lsits
     lst_Magnitudes =  []
     lst_Depth =  []
